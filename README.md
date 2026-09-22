@@ -1,93 +1,49 @@
-# Requisitos — Price Watcher
+# Price Watcher
 
-## 1. Problema
+O Price Watcher é um sistema de monitoramento de preços criado para ajudar
+pessoas que desejam acompanhar produtos online sem precisar verificar
+manualmente suas páginas todos os dias.
 
-Pessoas que desejam comprar um produto por um preço mais baixo precisam
-consultar repetidamente páginas de produtos para verificar se houve alguma
-redução de preço.
+O usuário poderá cadastrar produtos do Mercado Livre, definir opcionalmente
+um preço máximo desejado e receber um alerta quando o produto atingir esse
+valor.
 
-Esse processo exige verificações manuais frequentes e depende de o usuário
-lembrar de acompanhar os produtos de seu interesse.
+## Funcionalidades planejadas
 
-## 2. Público-alvo
+- Cadastro de usuários;
+- Cadastro de produtos para monitoramento;
+- Monitoramento diário de preços;
+- Definição opcional de preço máximo;
+- Armazenamento do histórico de preços;
+- Alertas por e-mail quando o preço desejado for atingido;
+- Pausa, edição e exclusão de produtos monitorados.
 
-Pessoas que realizam compras online e preferem aguardar promoções ou
-reduções de preço antes de realizar uma compra.
+## Protótipo
 
-## 3. Objetivo
+O fluxo inicial da aplicação foi desenvolvido no Figma.
 
-Permitir que o usuário monitore o preço de produtos do Mercado Livre e seja
-notificado quando um produto atingir o valor que está disposto a pagar,
-reduzindo a necessidade de consultar manualmente a página do produto.
+🔗 [Acessar protótipo no Figma](https://www.figma.com/proto/oL9MehNA1Gea3Zhzh8I69z/Sem-t%C3%ADtulo?node-id=0-1&t=SoRcZQfwCZWOKUVi-1)
 
-## 4. Requisitos Funcionais
+## Documentação
 
-### RF01 — Consultar preço
+A documentação inicial do projeto está disponível na pasta [`docs`](./docs).
 
-O sistema deve consultar o preço do produto por meio da URL cadastrada.
+Ela contém:
 
-### RF02 — Armazenar histórico
+- [Requisitos](./docs/requisitos.md)
+- [Histórias de usuário](./docs/historias-de-usuario.md)
+- [Design System](./docs/design-system.md)
+- [Arquitetura inicial](./docs/arquitetura.md)
 
-O sistema deve armazenar o preço obtido em cada verificação realizada.
+## Status do projeto
 
-### RF03 — Criar usuário
+🚧 Em desenvolvimento.
 
-O sistema deve permitir que o usuário crie uma conta.
+O projeto está sendo desenvolvido durante o Coffee & Code da PUCPR e será
+evoluído ao longo das próximas semanas.
 
-### RF04 — Definir preço máximo
+## Escopo inicial
 
-O sistema deve permitir que o usuário defina, opcionalmente, um preço máximo
-desejado para um produto monitorado.
-
-### RF05 — Enviar alerta
-
-O sistema deve enviar um e-mail ao usuário quando o preço do produto atingir
-ou ficar abaixo do preço máximo definido.
-
-## 5. Requisito Não Funcional
-
-### RNF01 — Periodicidade da verificação
-
-O sistema deve realizar a verificação dos preços diariamente às 13h.
-
-## 6. Regras de Negócio
-
-### RN01 — Limite de produtos monitorados
-
-Cada usuário pode possuir no máximo 3 produtos sendo monitorados
-simultaneamente.
-
-### RN02 — Preço máximo opcional
-
-Um produto pode ser monitorado sem que o usuário defina um preço máximo.
-
-### RN03 — Primeiro alerta de preço
-
-O primeiro alerta por e-mail deve ocorrer quando o preço do produto atingir
-ou ficar abaixo do preço máximo definido.
-
-### RN04 — Novos alertas
-
-Enquanto o preço permanecer igual ou abaixo do preço máximo definido, um
-novo alerta deve ser enviado somente quando for detectada uma nova redução
-no preço.
-
-## 7. Escopo inicial
-
-A primeira versão do Price Watcher terá como foco:
-
-- monitoramento de produtos do Mercado Livre;
-- uma URL para cada produto monitorado;
-- até 3 produtos monitorados por usuário;
-- armazenamento do histórico de preços;
-- notificações por e-mail.
-
-O histórico será armazenado pelo sistema, mas não será exibido ao usuário
-nesta primeira versão.
-
-Não fazem parte do escopo inicial:
-
-- monitoramento de outras lojas;
-- busca ou aplicação automática de cupons;
-- gráficos de histórico de preços;
-- notificações por WhatsApp ou outros aplicativos de mensagem.
+A primeira versão será focada no monitoramento de produtos do Mercado Livre.
+Outras lojas e funcionalidades adicionais poderão ser consideradas em versões
+futuras.
