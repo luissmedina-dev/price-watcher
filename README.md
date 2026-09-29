@@ -22,7 +22,7 @@ valor.
 
 O fluxo inicial da aplicação foi desenvolvido no Figma.
 
-🔗 [Acessar protótipo no Figma](https://www.figma.com/proto/oL9MehNA1Gea3Zhzh8I69z/Sem-t%C3%ADtulo?node-id=0-1&t=SoRcZQfwCZWOKUVi-1)
+[Acessar protótipo no Figma](https://www.figma.com/proto/oL9MehNA1Gea3Zhzh8I69z/Sem-t%C3%ADtulo?node-id=0-1&t=SoRcZQfwCZWOKUVi-1)
 
 ## Documentação
 
@@ -37,7 +37,7 @@ Ela contém:
 
 ## Status do projeto
 
-🚧 Em desenvolvimento.
+Em desenvolvimento.
 
 O projeto está sendo desenvolvido durante o Coffee & Code da PUCPR e será
 evoluído ao longo das próximas semanas.
