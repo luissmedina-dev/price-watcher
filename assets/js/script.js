@@ -8,6 +8,11 @@ document.getElementById("close-modal").addEventListener("click", () => {
     document.getElementById("add-product-modal").classList.remove("active");
 });
 
+// Fecha o formulario quando apertar cancelar  
+document.getElementById("cancel-modal").addEventListener("click", () => {
+    document.getElementById("add-product-modal").classList.remove("active");
+});
+
 // Fecha o formulario quando clicar fora da div do formulario 
 document.getElementById("add-product-modal").addEventListener("click", (e) => {
     if (e.target === e.currentTarget) {

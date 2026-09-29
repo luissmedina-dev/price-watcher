@@ -1,133 +1,321 @@
-# Design System — Price Watcher
+# Design System — Estom
 
-O Design System do Price Watcher define os principais padrões visuais da
-interface, buscando manter uma experiência simples, minimalista e consistente
-entre as diferentes telas do sistema.
+O Design System do Estom define os principais padrões visuais e de interação
+utilizados na interface.
+
+O objetivo é manter uma experiência simples, consistente e responsiva,
+facilitando também a reutilização dos componentes durante o desenvolvimento
+do projeto.
 
 ## 1. Cores
 
-A interface utiliza predominantemente branco e cores neutras, mantendo o azul
-como cor de destaque para ações e elementos interativos.
+O Estom utiliza azul como cor primária da interface, acompanhado por cores
+neutras e cores semânticas para representar os diferentes estados dos produtos.
+
+As cores são definidas através de variáveis CSS, permitindo manter consistência
+entre os componentes e adaptar a interface aos temas claro e escuro.
 
 ### Cor primária
 
-- Azul
-- Utilização: botões principais, links e elementos interativos de destaque.
+- `--color-primary`: `#2563eb`
+- `--color-primary-hover`: `#1d4ed8`
+- `--color-primary-text`: `#2563eb`
 
-### Cores neutras
+A cor primária é utilizada principalmente em botões e elementos interativos.
 
-- Branco: fundo principal da interface.
-- Preto: textos principais e informações de maior importância.
-- Cinza: textos e informações secundárias.
-- Cinza claro: bordas e separação entre elementos.
+A variável `--color-primary-text` é utilizada em elementos como o logo e o item
+ativo da navegação. No tema escuro, ela recebe um tom mais claro para garantir
+melhor contraste.
 
-### Sucesso
+### Cores da interface
 
-- Verde claro.
-- Utilizado em mensagens de confirmação e operações realizadas com sucesso.
+- `--color-background`: fundo principal da página.
+- `--color-surface`: superfícies como navbar, cards e modal.
+- `--color-text`: textos principais.
+- `--color-text-muted`: textos secundários.
+- `--color-border`: bordas e divisões entre elementos.
 
-### Erro
+### Cores semânticas
 
-- Vermelho claro.
-- Utilizado em mensagens de erro, alertas e campos inválidos.
+O sistema utiliza cores semânticas para representar a situação de um produto
+em relação à sua meta de preço:
 
-Mensagens de erro devem apresentar também uma explicação textual, evitando
-depender somente da cor para comunicar o problema.
+- Verde: produto abaixo da meta.
+- Amarelo: produto pouco acima da meta.
+- Vermelho: produto significativamente acima da meta.
+- Cinza: produto sem meta definida.
 
-## 2. Tipografia
+Cada estado possui uma cor de texto e uma cor de fundo próprias.
 
-A interface utiliza uma escala tipográfica simples para estabelecer hierarquia
-entre as informações.
+As cores são sempre acompanhadas por informações textuais, evitando que o
+estado do produto seja comunicado apenas através da cor.
 
-- H1: 24px / Bold
-- H2: 20px / Semibold
-- H3: 16px / Semibold
-- Texto principal: 14px / Regular
-- Texto secundário: 14px / Regular
-- Texto pequeno: 12px / Regular
+## 2. Tema claro e escuro
 
-Títulos de páginas e informações importantes, como o preço atual de um produto,
-devem possuir maior destaque visual.
+O Estom possui suporte aos temas claro e escuro.
 
-## 3. Espaçamento
+A troca de tema é realizada através do atributo `data-theme` no elemento
+`html`. As variáveis do Design System recebem novos valores quando o tema
+escuro está ativo.
 
-O projeto utiliza uma escala fixa de espaçamento:
+Exemplo:
 
-- 4px
-- 8px
-- 16px
-- 24px
-- 32px
-- 48px
+`data-theme="dark"`
 
-Os elementos da interface devem utilizar valores dessa escala para manter
-consistência visual entre diferentes telas e componentes.
+No tema escuro são alteradas principalmente:
 
-## 4. Arredondamento
+- cor de fundo;
+- cor das superfícies;
+- cores dos textos;
+- bordas;
+- cor primária utilizada em textos;
+- cores semânticas.
 
-O raio padrão definido para os elementos da interface é:
+O botão de tema localizado na navbar permite alternar manualmente entre os
+dois modos.
 
-- 8px
+## 3. Tipografia
 
-Esse valor deve ser utilizado principalmente em cards, campos de formulário e
-botões.
+A interface utiliza Arial como fonte principal, com Helvetica e fontes
+sans-serif como alternativas.
 
-## 5. Componentes
+A hierarquia tipográfica diferencia títulos, preços, textos principais e
+informações secundárias.
 
-### Card de produto
+### Principais tamanhos
 
-Componente utilizado na tela principal para representar cada produto
-monitorado.
+- Logo: `1.5rem`
+- Título principal: entre `1.5rem` e `2rem`
+- Título do produto: `1.05rem`
+- Preço do produto: `1.5rem`
+- Navegação: `0.95rem`
+- Informações secundárias: `0.875rem`
+- Status: `0.8rem`
+- Última atualização: `0.75rem`
 
-Pode apresentar:
+O título principal utiliza `clamp()` para adaptar seu tamanho de forma fluida
+entre diferentes larguras de tela.
 
-- imagem do produto;
-- nome;
-- preço atual;
-- informação sobre o preço máximo;
-- menu de ações.
+## 4. Espaçamento
 
-### Campo de formulário
+O projeto utiliza uma escala padronizada de espaçamento baseada em múltiplos
+de 8px, com um valor adicional de 4px para pequenos ajustes.
 
-Os campos de formulário seguem um mesmo padrão de label e input.
+Tokens utilizados:
 
-Estados previstos:
+- `--spacing-xs`: `4px`
+- `--spacing-sm`: `8px`
+- `--spacing-md`: `16px`
+- `--spacing-lg`: `24px`
+- `--spacing-xl`: `32px`
+- `--spacing-xxl`: `48px`
 
-- normal;
-- foco;
-- erro;
-- desabilitado.
+Esses valores são utilizados em margens, paddings e gaps para manter
+consistência entre os componentes.
+
+## 5. Arredondamento
+
+O sistema utiliza três níveis principais de arredondamento:
+
+- `--radius-sm`: `6px`
+- `--radius-md`: `10px`
+- `--radius-lg`: `16px`
+
+O raio pequeno é utilizado em controles menores, o médio em botões e campos
+de formulário e o maior em componentes como cards e modal.
+
+Os indicadores de status utilizam um arredondamento maior para criar o formato
+de badge.
+
+## 6. Componentes
+
+### Navbar
+
+A navbar apresenta a identidade do Estom e os principais controles de
+navegação.
+
+Atualmente contém:
+
+- logo Estom;
+- link para Meus Produtos;
+- botão para alternar entre tema claro e escuro.
+
+O item ativo utiliza a cor primária de texto.
 
 ### Botão primário
 
-Utilizado para representar as principais ações disponíveis ao usuário.
+Utilizado nas principais ações da interface, como adicionar um produto.
 
 Características:
 
 - fundo azul;
 - texto branco;
-- raio de 8px.
+- altura mínima de 44px;
+- texto em semibold;
+- mudança de cor no estado hover.
 
-Estados previstos:
+### Botão secundário
 
-- normal;
-- pressionado;
-- desabilitado.
+Utilizado em ações alternativas, como cancelar o cadastro de um produto.
 
-## 6. Feedback
+Possui fundo transparente e borda neutra para apresentar menor destaque em
+relação ao botão primário.
 
-Mensagens de sucesso devem utilizar tons claros de verde.
+### Botão de tema
 
-Mensagens de erro devem utilizar tons claros de vermelho e apresentar uma
-descrição textual do problema.
+Localizado na navbar e utilizado para alternar entre os temas claro e escuro.
 
-O objetivo é fornecer feedback ao usuário sem comprometer o estilo visual
-minimalista da aplicação.
+O ícone é alterado entre lua e sol de acordo com o tema disponível para
+ativação.
 
-## Referência visual
+### Card de produto
 
-A imagem abaixo apresenta a aplicação dos padrões visuais definidos
-para o Price Watcher.
+Representa cada produto monitorado na tela principal.
 
-![Design System do Price Watcher](./assets/home.png)
-![Design System do Price Watcher](./assets/add-page.png)
+O card pode apresentar:
+
+- imagem do produto;
+- nome;
+- loja;
+- preço atual;
+- meta de preço;
+- situação em relação à meta;
+- data e horário da última atualização;
+- menu de ações.
+
+No desktop, imagem e informações são apresentadas lado a lado. Em telas
+menores, o conteúdo é reorganizado verticalmente.
+
+O card também possui feedback visual ao passar o mouse.
+
+### Imagem do produto
+
+A imagem utiliza `object-fit: contain` para preservar sua proporção e evitar
+cortes.
+
+A área da imagem mantém fundo claro para acomodar as imagens utilizadas nos
+anúncios dos produtos.
+
+### Status de preço
+
+Os badges de status comunicam a relação entre o preço atual e a meta definida.
+
+Estados disponíveis:
+
+- `status-success`: abaixo da meta;
+- `status-warning`: pouco acima da meta;
+- `status-error`: significativamente acima da meta;
+- `status-neutral`: sem meta definida.
+
+Cada status combina texto e cor para facilitar sua identificação.
+
+### Menu de ações
+
+Cada card possui um botão representado por três pontos verticais.
+
+O botão reserva espaço para ações relacionadas ao produto e possui nome
+acessível através de `aria-label`.
+
+### Modal de adicionar produto
+
+O cadastro de produtos é realizado através de um modal sobreposto à tela
+principal.
+
+O modal contém:
+
+- título;
+- descrição;
+- botão para fechar;
+- formulário;
+- botão Cancelar;
+- botão Adicionar produto.
+
+O modal pode ser fechado através do botão de fechar, do botão Cancelar, de um
+clique fora do conteúdo ou pela tecla Escape.
+
+### Campos de formulário
+
+Os campos seguem um padrão composto por label e input.
+
+Atualmente o formulário possui:
+
+- nome do produto;
+- URL do produto;
+- preço máximo opcional.
+
+Os campos obrigatórios utilizam validação nativa do HTML.
+
+O campo de preço máximo possui também um texto auxiliar explicando o
+comportamento do sistema quando nenhuma meta é definida.
+
+## 7. Responsividade
+
+A interface segue uma abordagem mobile-first.
+
+O layout padrão é preparado inicialmente para telas menores e recebe
+adaptações conforme a largura disponível aumenta.
+
+### A partir de 768px
+
+- cabeçalho da página passa a ser horizontal;
+- cards passam de layout vertical para horizontal;
+- imagem do produto recebe largura fixa;
+- informação de última atualização é posicionada no canto inferior direito.
+
+### A partir de 1024px
+
+- o espaçamento vertical da área principal aumenta;
+- cards recebem padding maior.
+
+O container principal possui largura máxima de `1100px`, evitando que o
+conteúdo se espalhe excessivamente em telas grandes.
+
+## 8. Acessibilidade
+
+O Estom utiliza recursos de acessibilidade para tornar a interface mais
+compreensível e navegável.
+
+Entre as práticas utilizadas estão:
+
+- HTML semântico;
+- hierarquia sequencial de headings;
+- textos alternativos nas imagens;
+- labels associados aos campos de formulário;
+- `aria-label` em botões que utilizam apenas ícones;
+- indicador visual de foco através de `:focus-visible`;
+- contraste adequado entre texto e fundo;
+- estados que não dependem apenas de cores;
+- suporte à navegação por teclado;
+- fechamento do modal através da tecla Escape.
+
+A interface foi analisada utilizando o Lighthouse e atingiu pontuação 100 na
+categoria Accessibility após os ajustes de contraste e hierarquia de títulos.
+
+Também foram realizados testes manuais de navegação por teclado em desktop e
+em largura de tela reduzida.
+
+Como melhoria futura, o modal poderá receber um focus trap para impedir que o
+foco navegue pelos elementos da página ao fundo enquanto estiver aberto.
+
+## 9. Referência visual
+
+### Tela principal
+
+#### Tema claro
+
+![Tela principal do Estom no tema claro](./assets/home-light.png)
+
+#### Tema escuro
+
+![Tela principal do Estom no tema escuro](./assets/home-dark.png)
+
+### Modal de cadastro
+
+#### Tema claro
+
+![Modal de cadastro no tema claro](./assets/add-modal-light.png)
+
+#### Tema escuro
+
+![Modal de cadastro no tema escuro](./assets/add-modal-dark.png)
+

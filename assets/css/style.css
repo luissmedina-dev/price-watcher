@@ -278,8 +278,6 @@ p {
 
   overflow: hidden;
 
-  background-color: var(--color-background);
-
   border-radius: var(--radius-md);
 
   color: var(--color-text-muted);
