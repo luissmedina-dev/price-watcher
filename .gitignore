@@ -37,3 +37,6 @@ desktop.ini
 
 # Local testing scripts
 teste-supabase.ps1
+
+# Local Supabase SQL snippets
+supabase/snippets/
