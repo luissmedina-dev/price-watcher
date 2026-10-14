@@ -60,6 +60,8 @@ As tabelas utilizam chaves primárias e estrangeiras para identificar os registr
 
 O banco de dados está hospedado no Supabase, no projeto **Estom**. O PostgreSQL é utilizado para armazenar os dados estruturados da aplicação.
 
+![DER-Estom](./assets/DER-Estom.png);
+
 ## Scripts SQL
 
 Os scripts SQL do projeto estão organizados na pasta `sql/` e devem ser executados na seguinte ordem em uma configuração inicial do banco:
