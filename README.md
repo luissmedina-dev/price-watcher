@@ -56,6 +56,67 @@ Nesta etapa do projeto foram utilizadas:
 
 Novas tecnologias poderão ser adicionadas conforme a evolução da aplicação.
 
+## API REST
+
+A API REST do Estom está sendo desenvolvida com Python e FastAPI. Nesta etapa, ela permite cadastrar, listar, consultar, atualizar e excluir produtos monitorados.
+
+Os dados são armazenados temporariamente em memória, portanto são perdidos quando a aplicação é reiniciada.
+
+
+### Requisitos
+
+- Python instalado;
+- pip para instalação das dependências.
+
+### Instalação
+
+Na raiz do projeto, crie e ative um ambiente virtual.
+
+No Windows:
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+Instale as dependências:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Execução
+
+Com o ambiente virtual ativado, execute na raiz do projeto:
+
+```bash
+uvicorn api.main:app --reload
+```
+
+A API estará disponível em http://127.0.0.1:8000.
+
+### Documentação interativa
+
+Com a API em execução, acesse:
+
+- [Swagger UI](http://127.0.0.1:8000/docs)
+- [OpenAPI JSON](http://127.0.0.1:8000/openapi.json)
+
+### Endpoints disponíveis
+
+| Método | Endpoint | Descrição |
+|---|---|---|
+| POST | `/produtos` | Cadastra um produto |
+| GET | `/produtos` | Lista os produtos |
+| GET | `/produtos/{produto_id}` | Consulta um produto |
+| PUT | `/produtos/{produto_id}` | Substitui os dados de um produto |
+| PATCH | `/produtos/{produto_id}` | Atualiza parcialmente um produto |
+| DELETE | `/produtos/{produto_id}` | Exclui um produto |
+| GET | `/categorias` | Lista as categorias |
+| GET | `/categorias/{categoria_id}` | Consulta uma categoria por ID |
+
+A API valida os dados recebidos e utiliza códigos de status HTTP para indicar sucesso ou erros nas operações.
+
 ## Interface
 
 A interface segue uma abordagem mobile-first e utiliza componentes e tokens
@@ -71,13 +132,11 @@ categoria Accessibility.
 
 O fluxo inicial da aplicação foi desenvolvido no Figma.
 
-[Acessar protótipo no Figma](https://www.figma.com/proto/oL9MehNA1Gea3Zhzh8I69z/Sem-t%C3%ADtulo?node-id=0-1&t=SoRcZQfwCZWOKUVi-1)
+[Acessar protótipo no Figma](https://www.figma.com/proto/oL9MehNA1Gea3Zhzh8I69z/Sem-t%C3%ADtulo?node-id=0-1)
 
 ## Documentação
 
-A documentação do projeto está disponível na pasta [`docs`](./docs).
-
-Ela contém:
+A documentação do projeto está disponível na pasta [docs](./docs).
 
 - [Requisitos](./docs/requisitos.md)
 - [Histórias de usuário](./docs/historias-de-usuario.md)
@@ -87,13 +146,21 @@ Ela contém:
 ## Estrutura do projeto
 
 ```text
-price-watcher/
+Estom/
+├── api/
+│   ├── main.py
+│   ├── dados.py
+│   └── schemas.py
 ├── assets/
 │   ├── css/
 │   ├── images/
 │   └── js/
 ├── docs/
+├── supabase/
 ├── index.html
+├── login.html
+├── perfil.html
+├── requirements.txt
 └── README.md
 ```
 

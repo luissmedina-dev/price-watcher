@@ -40,3 +40,6 @@ teste-supabase.ps1
 
 # Local Supabase SQL snippets
 supabase/snippets/
+
+.venv
+__pycache__
